@@ -1,0 +1,75 @@
+{% extends 'frontbase.html.twig' %}
+
+{% block title %} Shopcart {% endblock %}
+
+
+
+{% block content %}
+<div id="wrapper" class="container">
+    <ul class="breadcrumb">
+        <li><a href="{{ path('home') }}">Bilgilerim</a> <span class="divider">/</span></li>
+        <li><a href="">Düzenle</a> <span class="divider">/</span></li>
+        <li><a href="{{ path('orders_index') }}">Siparişlerim</a> <span class="divider">/</span></li>
+        <li><a href="">Sepetim</a> <span class="divider">/</span></li>
+        <li><a href="">Sipariş Geçmişi</a> <span class="divider">/</span></li>
+        <li><a href="">Yorumlar</a> <span class="divider">/</span></li>
+        <li><a href="">Sepetim</a> <span class="divider">/</span></li>
+        <li><a href="{{ path('app_logout') }}"><span class="divider">Çıkış</span> </a> </li>
+
+    </ul>
+    <h1>Orders</h1>
+    {{ include ('admin/messages.html.twig') }}
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ order.id }}</td>
+            </tr>
+            <tr>
+                <th>Userid</th>
+                <td>{{ order.userid }}</td>
+            </tr>
+            <tr>
+                <th>Amount</th>
+                <td>{{ order.amount }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ order.name }}</td>
+            </tr>
+            <tr>
+                <th>Adress</th>
+                <td>{{ order.adress }}</td>
+            </tr>
+            <tr>
+                <th>City</th>
+                <td>{{ order.city }}</td>
+            </tr>
+            <tr>
+                <th>Phone</th>
+                <td>{{ order.phone }}</td>
+            </tr>
+            <tr>
+                <th>Shipinfo</th>
+                <td>{{ order.shipinfo }}</td>
+            </tr>
+            <tr>
+                <th>Status</th>
+                <td>{{ order.status }}</td>
+            </tr>
+            <tr>
+                <th>Note</th>
+                <td>{{ order.note }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+
+
+
+
+
+</div>
+{% endblock %}
+

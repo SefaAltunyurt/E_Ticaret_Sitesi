@@ -1,0 +1,66 @@
+{% extends 'frontbase.html.twig' %}
+
+{% block title %} Shopcart {% endblock %}
+
+
+
+{% block content %}
+<div id="wrapper" class="container">
+    <ul class="breadcrumb">
+        <li><a href="{{ path('userpanel_show') }}">Bilgilerim</a> <span class="divider">/</span></li>
+        <li><a href="{{ path('userpanel_edit') }}">Düzenle</a> <span class="divider">/</span></li>
+        <li><a href="{{ path('orders_index') }}">Siparişlerim</a> <span class="divider">/</span></li>
+        <li><a href="{{ path('shopcart_index') }}">Sepetim</a> <span class="divider">/</span></li>
+
+
+        <li><a href="{{ path('app_logout') }}"><span class="divider">Çıkış</span> </a> </li>
+
+    </ul>
+    <h2>Siparişlerim</h2>
+    {{ include ('admin/messages.html.twig') }}
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Userid</th>
+                <th>Amount</th>
+                <th>Name</th>
+                <th>Adress</th>
+                <th>City</th>
+                <th>Phone</th>
+                <th>Shipinfo</th>
+                <th>Status</th>
+                <th>Note</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for order in orders %}
+            <tr>
+                <td>{{ order.id }}</td>
+                <td>{{ order.userid }}</td>
+                <td>{{ order.amount }}</td>
+                <td>{{ order.name }}</td>
+                <td>{{ order.adress }}</td>
+                <td>{{ order.city }}</td>
+                <td>{{ order.phone }}</td>
+                <td>{{ order.shipinfo }}</td>
+                <td>{{ order.status }}</td>
+                <td>{{ order.note }}</td>
+                <td>
+                    <a href="{{ path('orders_show', {'id': order.id}) }}">show</a>
+
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="11">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('orders_new') }}">Create new</a>
+</div>
+{% endblock %}

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>S.ALTUNYURT ~~ HOŞGELDİNİZ</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <!--[if ie]>
+    <meta content='IE=8' http-equiv='X-UA-Compatible'/><![endif]-->
+    <!-- bootstrap -->
+    <link href="{{ asset('bootstrap') }}/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{ asset('bootstrap') }}/css/bootstrap-responsive.min.css" rel="stylesheet">
+
+    <link href="{{ asset('themes') }}/css/bootstrappage.css" rel="stylesheet"/>
+
+    <!-- global styles -->
+    <link href="{{ asset('themes') }}/css/flexslider.css" rel="stylesheet"/>
+    <link href="{{ asset('themes') }}/css/main.css" rel="stylesheet"/>
+
+    <!-- scripts -->
+    <script src="{{ asset('themes') }}/js/jquery-1.7.2.min.js"></script>
+    <script src="{{ asset('bootstrap') }}/js/bootstrap.min.js"></script>
+    <script src="{{ asset('themes') }}/js/superfish.js"></script>
+    <script src="{{ asset('themes') }}/js/jquery.scrolltotop.js"></script>
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <script src="js/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+<div id="top-bar" class="container">
+    <div class="row">
+        <div class="span4">
+            {{ include ('admin/messages.html.twig') }}
+        </div>
+        <div class="span8">
+            <ul class="nav pull-right">
+                <li class="dropdown">
+                     {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                         <a data-toggle="dropdown" class="dropdown-toggle" href="#"><span class="icon-lock"></span>{{ app.user.email }}<b class="caret"></b></a>
+
+                             <div class="dropdown-menu">
+                            <ul>
+                                <li><a href="{{ path('app_login') }}">Hesabım</a> </li>
+                                <li><a href="{{ path('orders_index') }}">Siparişlerim</a></li>
+                                <li><a href="{{ path('shopcart_index') }}">Sepetim</a></li>
+                                <li><a href="{{ path('app_logout') }}">Çıkış</a> </li>
+                            </ul>
+                            </div>
+                     {% else %}
+                         <a data-toggle="dropdown" class="dropdown-toggle" href="#"><span class="icon-lock"></span>Login<b class="caret"></b></a>
+                        <div class="dropdown-menu">
+                            <ul>
+                                <li><a href="{{ path('new_user') }}">Üye Ol</a></li>
+                                <li><a href="{{ path('app_login') }}">Giriş Yap</a> </li>
+                            </ul>
+                        </div>
+
+                        {% endif %}
+                    </li>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div id="wrapper" class="container">
+    <section class="navbar main-menu">
+        <div class="navbar-inner main-menu">
+            <a href="{{ path('home') }}" class="logo pull-left"><img src="{{ asset('themes') }}/images/logo.png"
+                                                             class="site_logo" alt=""></a>
+
+            <nav id="menu" class="pull-right">
+
+                {% for cat in cats %}
+                    {{ cat|raw }}
+                {% endfor %}
+
+            </nav>
+
+            <!--         <div>
+                <br>
+                <nav id="menu" class="pull-left">/
+
+                    <ul >
+                        <li><a href="./index.html">Homepage</a></li>
+                        <li><a href="{{ path('hakkimizda') }}">Hakkımızda</a></li>
+                        <li><a href="{{ path('iletisim') }}">İletişim</a></li>
+                        <li><a href="{{ path('referanslar') }}">Referanslar</a></li>
+                        <li><a href="./cart.html">Your Cart</a></li>
+                        <li><a href="./register.html">Login</a></li>
+                    </ul>
+                </nav>
+
+            </div>
+   -->
+
+        </div>
+    </section>
+</div>
+{% block slider %}{% endblock %}
+{% block content %}{% endblock %}
+<script src="{{ asset('themes') }}/js/common.js"></script>
+<script src="{{ asset('themes') }}/js/jquery.flexslider-min.js"></script>
+<script type="text/javascript">
+    $(function () {
+        $(document).ready(function () {
+            $('.flexslider').flexslider({
+                animation: "fade",
+                slideshowSpeed: 4000,
+                animationSpeed: 600,
+                controlNav: false,
+                directionNav: true,
+                controlsContainer: ".flex-container" // the container that holds the flexslider
+            });
+        });
+    });
+</script>
+<div id="wrapper" class="container">
+    <section id="footer-bar">
+        <div class="row">
+            <div class="span3">
+                <h4>Hızlı Erişim</h4>
+                <ul class="nav">
+                    <li><a href="{{ path('home') }}">Homepage</a></li>
+                    <li><a href="{{ path ('hakkimizda') }}">Hakkımızda</a></li>
+                    <li><a href="{{ path ('iletisim') }}">İletişim</a></li>
+                    <li><a href="{{ path ('referanslar') }}">Referanslar</a></li>
+                    <li><a href="{{ path('app_login') }}">Login</a></li>
+                </ul>
+            </div>
+
+            <div class="span5">
+                <p class="logo"><img src="{{ asset('themes') }}/images/logo.png" class="site_logo" alt=""></p>
+                <p>Bu site Sefa ALtunyurt tarafından yapılmıştır ve tüm hakları saklıdır.</p>
+                <br/>
+
+            </div>
+        </div>
+    </section>
+</div>
+
+    <section id="copyright">
+        <div class="text-center">Sefa Altunyurt |Tüm hakları saklıdır 2018   <a href="https://www.linkedin.com/in/sefa-altunyurt-a703b4136/">ALTUNYURTSEFA</a></div>
+    </section>
+</div>
+</body>

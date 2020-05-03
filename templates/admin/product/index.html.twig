@@ -1,0 +1,101 @@
+{% extends 'adminbase.html.twig' %}
+
+{% block title %}Ürün Listesi{% endblock %}
+{% block content %}
+    <div id="page-wrapper">
+        <div class="header">
+            <h1 class="page-header">
+                Ürün Listesi
+
+                <div>
+                    <small><a href="{{ path('admin_product_new') }}" class="btn btn-primary"><i class="glyphicon glyphicon-plus
+                "></i>Ürün Ekleme</a> </small>
+                </div>
+            </h1>
+            <div class="panel panel-default">
+
+
+                <!-- /.panel-heading -->
+                <div class="panel-body">
+                    <div class="table-responsive table-bordered">
+
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Title</th>
+
+                                <th>Year</th>
+                                <th>Amount</th>
+                                <th>Price</th>
+                                <th>Sprice</th>
+                                <th>Min</th>
+
+                                <th>Image</th>
+                                <th>Galeri</th>
+                                <th>Category_id</th>
+                                <th>User_id</th>
+                                <th>Status</th>
+                                <th>Göster</th>
+                                <th>Düzenle</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for product in products %}
+                                <tr>
+                                    <td>{{ product.id }}</td>
+                                    <td>{{ product.title }}</td>
+
+
+                                    <td>{{ product.year }}</td>
+                                    <td>{{ product.amount }}</td>
+                                    <td>{{ product.price }}</td>
+                                    <td>{{ product.sprice }}</td>
+                                    <td>{{ product.min }}</td>
+
+                                    <td>
+                                        <a href="javascript:openWin('{{ path('admin_product_iedit', {'id':product.id}) }}','','toolbar=no,location=no,directories=0,status=no,top=100,left=200,menuBar=no,scrollBars=no,resizable=no,width=600,height=500');">
+                                            {% if product.image==null %}
+                                                <img src="{{ url('admin') }}/img/yeni1.png"height=45>
+                                            {% else %}
+                                                <img src="{{ asset('uploads') }}/İmages/{{ product.image }}"height="40">
+
+                                            {% endif %}
+                                        </a>
+
+                                    </td>
+
+                                    <td>
+                                        <a href="javascript:openWin('{{ path('admin_image_new', {'pid':product.id}) }}','','toolbar=no,location=no,directories=0,status=no,top=100,left=200,menuBar=no,scrollBars=no,resizable=no,width=1000,height=800');">
+                                        <img src="{{ url('admin') }}/img/yeni3.png"height=40>
+                                        </a>
+                                    </td>
+                                    <td>{{ product.categoryId }}</td>
+
+                                    <td>{{ product.status }}</td>
+                                    <td>
+                                        <a href="{{ path('admin_product_show', {'id': product.id}) }}"class="btn btn-success">Göster</a>
+                                    </td> <td> <a href="{{ path('admin_product_edit', {'id':product.id}) }}"class="btn btn-danger">Düzenle</a>
+                                    </td>
+                                </tr>
+                            {% else %}
+                                <tr>
+                                    <td colspan="18">no records found</td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+
+                        <a href="{{ path('admin_product_new') }}">Create new</a>
+
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}
+

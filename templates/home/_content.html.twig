@@ -1,0 +1,114 @@
+<div id="wrapper" class="container">
+<section class="header_text">
+
+</section>
+<section class="main-content">
+    <div class="row">
+        <div class="span12">
+            <div class="row">
+                <div class="span12">
+                    <h4 class="title text-center">
+                        <span class="pull-center"><span class="text"><span class="line"><strong>ÜRÜNLER</strong></span></span></span>
+
+                    </h4>
+
+                    <div id="myCarousel" class="myCarousel carousel slide">
+                        <div class="carousel-inner">
+
+                            <div class="active item">
+                                <ul class="thumbnails" >
+                                    {% for row in randProducts %}
+                                    <li class="span3">
+                                        <div class="product-box">
+                                            <span class="sale_tag"></span>
+                                            <p><a href="/product/{{ row.id }}"><img style="height: 200px; width: auto" src="{{ asset('Uploads') }}/İmages/{{ row.image }}" alt="" /></a></p>
+                                            <a href="/product/{{ row.id }}" class="title">{{ row.title }}</a><br/>
+                                            <p class="price">{{ row.sprice }} TL</p>
+                                        </div>
+                                    </li>
+                                    {% endfor %}
+
+                                </ul>
+
+                            </div>
+
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <br/>
+
+            <div class="row feature_box">
+                <div class="span4">
+                    <div class="service">
+                        <div class="responsive">
+                            <img src="themes/images/feature_img_2.png" alt="" />
+                            <h4>MODERN <strong>DESIGN</strong></h4>
+                            <p>Lorem Ipsum is simply dummy text of the printing and printing industry unknown printer.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="span4">
+                    <div class="service">
+                        <div class="customize">
+                            <img src="themes/images/feature_img_1.png" alt="" />
+                            <h4>FREE <strong>SHIPPING</strong></h4>
+                            <p>Lorem Ipsum is simply dummy text of the printing and printing industry unknown printer.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="span4">
+                    <div class="service">
+                        <div class="support">
+                            <img src="themes/images/feature_img_3.png" alt="" />
+                            <h4>24/7 LIVE <strong>SUPPORT</strong></h4>
+                            <p>Lorem Ipsum is simply dummy text of the printing and printing industry unknown printer.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+    <h4 class="title" style="text-align: center"><span class="text" >Anlaşmalı Kartlarımız</span></h4>
+    <div class="row">
+        <div class="span2">
+            <a href="#"><img alt="Koton World Card Logo" title="" src="https://img-kotontr.mncdn.com/images/2018/agustos/footer-card-x2-world-logo.jpg"></a>
+
+        </div>
+        <div class="span2">
+            <a href="#">
+                    <img alt="Koton Paraf Card Logo" title="" src="https://img-kotontr.mncdn.com/images/2018/agustos/footer-card-x2-paraf-logo.jpg">
+
+                </a>
+
+        </div>
+        <div class="span2">
+            <a href="#">
+                    <img alt="Koton Cardfinans Card Logo" title="" src="https://img-kotontr.mncdn.com/images/2018/agustos/footer-card-x2-cardfinans-logo.jpg">
+
+                </a>
+        </div>
+        <div class="span2">
+            <a href="#">
+                    <img alt="Koton Advantage Card Logo" title="" src="https://img-kotontr.mncdn.com/images/2018/agustos/footer-card-x2-advantage-logo.jpg">
+
+                </a>
+        </div>
+        <div class="span2">
+            <a href="#">
+                    <img alt="Koton Maximum Card Logo" title="" src="https://img-kotontr.mncdn.com/images/2018/agustos/footer-card-x2-maximum-logo.jpg">
+
+                </a>
+        </div>
+        <div class="span2">
+            <a href="#">
+                    <img alt="Koton Axess Card Logo" title="" src="https://img-kotontr.mncdn.com/images/2018/agustos/footer-card-x2-axess-logo.jpg">
+
+                </a>
+        </div>
+    </div>
+</section>
+</div>

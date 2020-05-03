@@ -1,0 +1,49 @@
+<div id="wrapper" class="container">
+    <section class="homepage-slider" id="home-slider">
+        <div class="flexslider">
+
+            <ul class="slides">
+                {% for rs in sliders %}
+
+                    {#<a href="{{ path('product_detail',{'id': rs.id}) }}">#}
+                    <li>
+                        <div class="col-md-12" style="background-color: #FFFFFF;">
+                            <h1>{{ rs.title }}</h1>
+                            <p> <h3>{{ rs.sprice }}TL</h3></p>
+                             <button type="button" class="btn btn-warning"> <a href="{{ path('product_detail',{'id':rs.id}) }}">Hemen Al</a></button>
+                                <img src="{{ asset('Uploads') }}/İmages/{{ rs.image }}" alt=""
+                                     style="height: 500px; width: auto;"/>
+
+                        </div>
+                    </li>
+
+                    <div class="intro">
+
+
+
+                    </div>
+                {% endfor %}
+            </ul>
+
+        </div>
+    </section>
+</div>
+
+
+{#<section  class="homepage-slider" id="home-slider">#}
+    {#<div class="flexslider">#}
+        {#<ul class="slides">#}
+            {#<li>#}
+                {#<img src="themes/images/carousel/banner-1.jpg" alt="" />#}
+            {#</li>#}
+            {#<li>#}
+                {#<img src="themes/images/carousel/banner-2.jpg" alt="" />#}
+                {#<div class="intro">#}
+                    {#<h1>Mid season sale</h1>#}
+                    {#<p><span>Up to 50% Off</span></p>#}
+                    {#<p><span>On selected items online and in stores</span></p>#}
+                {#</div>#}
+            {#</li>#}
+        {#</ul>#}
+    {#</div>#}
+{#</section>#}

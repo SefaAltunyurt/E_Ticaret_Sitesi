@@ -1,0 +1,26 @@
+{% extends 'adminbase.html.twig' %}
+
+{% block title %}Üye Ekleme{% endblock %}
+{% block content %}
+<div id="page-wrapper">
+    <div class="header">
+        <h1 class="page-header">
+            Üye Ekleme
+
+        </h1>
+        <div class="panel panel-default">
+
+
+            <!-- /.panel-heading -->
+            <div class="panel-body">
+                <div class="table-responsive table-bordered">
+
+                    {{ include('admin/category/_form.html.twig') }}
+
+                    <a href="{{ path('admin_category_index') }}">back to list</a>
+                </div>
+            </div>
+        </div>
+
+
+        {% endblock %}

@@ -1,0 +1,27 @@
+{% extends 'adminbase.html.twig' %}
+
+{% block title %}Üye Düzenleme{% endblock %}
+{% block content %}
+<div id="page-wrapper">
+    <div class="header">
+        <h1 class="page-header">
+            Üye Düzenleme
+
+        </h1>
+        <div class="panel panel-default">
+
+
+            <!-- /.panel-heading -->
+            <div class="panel-body">
+                <div class="table-responsive table-bordered">
+
+    {{ include('admin/product/_form.html.twig') }}
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

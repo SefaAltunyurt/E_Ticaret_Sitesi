@@ -1,0 +1,75 @@
+{% extends 'frontbase.html.twig' %}
+
+{% block title %}Üye Bilgileri{% endblock %}
+{% block sidebar %} {% include 'home/_usersidebar.html.twig' %} {% endblock %}
+{% block content %}
+
+    <div class="container">
+        <div class="col-sm-offset-3 padding-right">
+            <div class="product-details"><!--product-details-->
+                {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+
+                    <ul class="breadcrumb">
+                        <li><a href="{{ path('userpanel_show') }}">Bilgilerim</a> <span class="divider">/</span></li>
+                        <li><a href="{{ path('userpanel_edit') }}">Düzenle</a> <span class="divider">/</span></li>
+                        <li><a href="{{ path('orders_index') }}">Siparişlerim</a> <span class="divider">/</span></li>
+                        <li><a href="{{ path('shopcart_index') }}">Sepetim</a> <span class="divider">/</span></li>
+
+
+                        <li><a href="{{ path('app_logout') }}"><span class="divider">Çıkış</span> </a> </li>
+
+                    </ul>
+                {% endif %}
+
+                <h1>Üye Bilgileri</h1>
+                {{ include('admin/messages.html.twig') }}
+
+
+                <table class="table" >
+                    <tbody>
+                    <tr>
+                        <th>Id</th>
+                        <td>{{ app.user.id }}</td>
+                    </tr>
+                    <tr>
+                        <th>Mail</th>
+                        <td>{{ app.user.email }}</td>
+                    </tr>
+                    <tr>
+                        <th>Roles</th>
+                        <td>{{ app.user.roles|join }}</td>
+                    </tr>
+                    <tr>
+                        <th>Name</th>
+                        <td>{{ app.user.name }}</td>
+                    </tr>
+                    <tr>
+                        <th>Adress</th>
+                        <td>{{ app.user.address }}</td>
+                    </tr>
+                    <tr>
+                        <th>City</th>
+                        <td>{{ app.user.city }}</td>
+                    </tr>
+                    <tr>
+                        <th>Phone</th>
+                        <td>{{app.user.phone }}</td>
+                    </tr>
+                    <tr>
+                        <th>Status</th>
+                        <td>{{ app.user.status }}</td>
+                    </tr>
+
+
+
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </section>
+{% endblock %}

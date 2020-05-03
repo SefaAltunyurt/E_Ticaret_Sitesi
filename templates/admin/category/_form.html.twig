@@ -1,0 +1,57 @@
+
+<div class="panel-body">
+    <form class="form-horizontal"method="post">
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Üst Kategori</label>
+            <div class="col-sm-10">
+                <select name="category[parentid]" class="form-control">
+
+                {% if catname is defined %}
+                    <option value="{{ catname.id }}"> {{ catname.title }}</option>
+                {% endif %}
+                <option value="0">Ana Kategori</option>
+                {% for cat in catlist %}
+                <option value="{{ cat.id }}">{{ cat.title }}</option>
+                {% endfor %}
+
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Title (Başlık)</label>
+            <div class="col-sm-10">
+                <input type="text" name="category[title]"value="{{ category.title }}"class="form-control"  placeholder="title">
+            </div>
+        </div>
+        <div class="form-group">
+            <label  class="col-sm-2 control-label">Keywords(Anahtar Kelimeler)</label>
+            <div class="col-sm-10">
+                <input type="text" name="category[keywords]"value="{{ category.keywords }}" class="form-control" id="inputPassword3" placeholder="keywords">
+            </div>
+        </div>
+        <div class="form-group">
+            <label  class="col-sm-2 control-label">Description(Kısa Açıklama)</label>
+            <div class="col-sm-10">
+                <input type="text" name="category[description]"value="{{ category.description }}" class="form-control" id="inputPassword3" placeholder="description">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Aktif Durumu</label>
+            <div class="col-sm-10">
+                <select name="category[status]" class="form-control">
+                <option> {{ category.status }}</option>
+                <option>True</option>
+                <option selected>False</option>
+
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-sm-offset-11 col-sm-1000">
+                <button type="submit" class="btn btn-danger">Kaydet</button>
+            </div>
+        </div>
+    </form>
+</div>

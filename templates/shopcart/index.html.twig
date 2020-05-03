@@ -1,0 +1,66 @@
+{% extends 'frontbase.html.twig' %}
+
+{% block title %} Shopcart {% endblock %}
+
+
+
+{% block content %}
+<div id="wrapper" class="container">
+    <ul class="breadcrumb">
+        <li><a href="{{ path('userpanel_show') }}">Bilgilerim</a> <span class="divider">/</span></li>
+        <li><a href="{{ path('userpanel_edit') }}">Düzenle</a> <span class="divider">/</span></li>
+        <li><a href="{{ path('orders_index') }}">Siparişlerim</a> <span class="divider">/</span></li>
+        <li><a href="{{ path('shopcart_index') }}">Sepetim</a> <span class="divider">/</span></li>
+
+
+        <li><a href="{{ path('app_logout') }}"><span class="divider">Çıkış</span> </a> </li>
+
+    </ul>
+    <h1>Sepetim</h1>
+    {{ include ('admin/messages.html.twig') }}
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Product Name</th>
+                <th>Sprice</th>
+                <th>Quantity</th>
+                <th>Total</th>
+                <th>Action</th>
+
+
+            </tr>
+        </thead>
+        <tbody>
+        {% set total =0 %}
+        {% for shopcart in shopcarts %}
+            <tr>
+                <td>{{ shopcart.id }}</td>
+                <td>{{ shopcart.title }}</td>
+                <td>{{ shopcart.sprice }}</td>
+                <td>{{ shopcart.quantity }}</td>
+                <td>{{ shopcart.quantity * shopcart.sprice }}</td>
+
+                <td>
+                    <a href="{{ path('shopcart_del',{'id':shopcart.id}) }}" onclick="return confirm('silinecek emin misin?');">Sil</a>
+                </td>
+            </tr>
+            {% set total=total+(shopcart.quantity*shopcart.sprice) %}
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        <tr>
+            <td colspan="5">
+                <h3>Toplam Alışveriş Tutarı:{{ total }}TL</h3>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+
+    <a href="{{ path('orders_new') }}"class="btn btn-block btn-success btn-large">Ürünleri Satınal</a>
+</div>
+{% endblock %}

@@ -1,0 +1,65 @@
+{% extends 'adminbase.html.twig' %}
+
+{% block title %}Üye Listesi{% endblock %}
+{% block content %}
+    <div id="page-wrapper">
+        <div class="header">
+            <h1 class="page-header">
+                Üye Listesi
+
+                <div>
+                    <small><a href="{{ path('admin_user_new') }}" class="btn btn-primary"><i class="glyphicon glyphicon-plus
+                "></i>Üye Ekleme</a> </small>
+                </div>
+            </h1>
+            <div class="panel panel-default">
+
+
+                <!-- /.panel-heading -->
+                <div class="panel-body">
+                    <div class="table-responsive table-bordered">
+
+                        <table class="table">
+
+                            <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Adı Soyadı</th>
+                                <th>Email</th>
+                                <th>Durum</th>
+                                <th>Türü</th>
+                                <th>Düzenler</th>
+                                <th>Sil</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for row in users %}
+                                <tr>
+                                    <td>{{ row.id }}</td>
+                                    <td>{{ row.name }}</td>
+                                    <td>{{ row.email }}</td>
+                                    <td>{{ row.status }}</td>
+                                    <td>
+                                        {% for item in row.roles %}
+                                            {{ item }}
+                                        {% endfor %}
+                                    </td>
+                                    <td><a href="{{path('admin_user_edit',{'id':row.id}) }}" class="btn btn-success">Düzenle</td>
+                                    <td><a href="{{path('admin_user_delete',{'id':row.id}) }}"onclick="return confirm('Silinecek Emin misiniz?')" class="btn btn-danger">Sil</td>
+                                </tr>
+
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+
+{% endblock %}

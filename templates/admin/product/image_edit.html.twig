@@ -1,0 +1,27 @@
+{% extends 'adminbase.html.twig' %}
+
+{% block title %}Resim Düzenleme{% endblock %}
+{% block content %}
+    <div id="page-wrapper">
+        <div class="header">
+            <h1 class="page-header">
+                {{ product.title }}
+                Üye Düzenleme
+
+            </h1>
+            <form action="{{ path('admin_product_iupdate', {'id':id}) }}" method="post" enctype="multipart/form-data">
+                Select image to upload:
+                <input name="productid" value="{{ id }}"type="number" readonly>
+                <input type="file" name="imagename" id="fileToUpload"><br>
+                <input type="submit" value="Upload Image" name="submit">
+            </form>
+            {% if product.image!=null %}
+              <img src="{{ asset('Uploads') }}/İmages/{{ product.image }}">
+
+            {% endif %}
+        </div>
+    </div>
+
+
+
+{% endblock %}

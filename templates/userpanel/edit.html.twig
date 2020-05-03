@@ -1,0 +1,30 @@
+{% extends 'frontbase.html.twig' %}
+
+{% block title %} Shopcart {% endblock %}
+
+
+
+{% block content %}
+    <div id="wrapper" class="container">
+        <ul class="breadcrumb">
+            <li><a href="{{ path('userpanel_show') }}">Bilgilerim</a> <span class="divider">/</span></li>
+            <li><a href="{{ path('userpanel_edit') }}">Düzenle</a> <span class="divider">/</span></li>
+            <li><a href="{{ path('orders_index') }}">Siparişlerim</a> <span class="divider">/</span></li>
+            <li><a href="{{ path('shopcart_index') }}">Sepetim</a> <span class="divider">/</span></li>
+
+
+            <li><a href="{{ path('app_logout') }}"><span class="divider">Çıkış</span> </a> </li>
+
+        </ul>
+
+        {{ include ('admin/messages.html.twig') }}
+
+
+        <h3>Üye Bilgileri Düzenle</h3>
+
+        {{ include('userpanel/_form.html.twig', {'button_label': 'Update'}) }}
+
+    </div>
+    </div>
+
+{% endblock %}

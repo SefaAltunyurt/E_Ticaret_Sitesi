@@ -1,0 +1,87 @@
+{% extends 'adminbase.html.twig' %}
+
+{% block title %}Ürün Listesi{% endblock %}
+{% block content %}
+<div id="page-wrapper">
+    <div class="header">
+        <h1 class="page-header">
+            Ürün Listesi
+
+
+        </h1>
+        <div class="panel panel-default">
+
+
+            <!-- /.panel-heading -->
+            <div class="panel-body">
+                <div class="table-responsive table-bordered">
+                    <table class="table">
+                        <tbody>
+                        <tr>
+                            <th>Id</th>
+                            <td>{{ order.id }}</td>
+                        </tr>
+                        <tr>
+                            <th>Userid</th>
+                            <td>{{ order.userid }}</td>
+                        </tr>
+                        <tr>
+                            <th>Amount</th>
+                            <td>{{ order.amount }}</td>
+                        </tr>
+                        <tr>
+                            <th>Name</th>
+                            <td>{{ order.name }}</td>
+                        </tr>
+                        <tr>
+                            <th>Adress</th>
+                            <td>{{ order.adress }}</td>
+                        </tr>
+                        <tr>
+                            <th>City</th>
+                            <td>{{ order.city }}</td>
+                        </tr>
+                        <tr>
+                            <th>Phone</th>
+                            <td>{{ order.phone }}</td>
+                        </tr>
+                        <form action="{{ path('admin_orders_update',{'id': order.id}) }}" method="post">
+
+
+                            <tr>
+                                <th>Shipinfo</th>
+                                <td>{{ order.shipinfo }}</td>
+                            </tr>
+                            <tr>
+                                <th>Note</th>
+                                <td><textarea name="note" cols="100" rows="3"> {{ order.note }}</textarea></td>
+                            </tr>
+                            <tr>
+                                <th>Status</th>
+                                <td><select name="status">
+                                        <option>{{ order.status }}</option>
+                                        <option>Accepted</option>
+                                        <option>InShipping</option>
+                                        <option>Canceled</option>
+                                        <option>Accepted</option>
+
+                                    </select>
+                                    <input type="submit" value="Güncelle">
+                                </td>
+                            </tr>
+
+                        </form>
+                        </tbody>
+                    </table>
+
+
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+        {% endblock %}
