@@ -1,2 +1,6 @@
 # E_Ticaret_Sitesi
-I created a shopping site
+
+##Site<br>
+->Php Symphony ile kodlanmıştır<br>
+->Admin Paneli vardır.<br>
+->Database :Mysql
